@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Binary Base64 encoder</title>
+	<style>
+	.container {
+		width: 50%;
+		max-width: 500px;
+		min-width: 250px;
+		margin: auto;
+		text-align: center;
+	}
+
+	.container > textarea {
+		width: 100%;
+		height: 350px;
+	}
+
+	.container > button {
+		border: 1px solid #ccc;
+		padding: 10px 16px;
+		font-size: 18px;
+		border-radius: 6px;
+		color: #333;
+		background-color: #fff;
+		font-size: 14px;
+		cursor: pointer;
+		margin-bottom: 15px;
+	}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<p>Enter your 8 bit binary inputs, divided by spaces</p>
+		<textarea id="bits" placeholder="01100100 01010100 00101110"></textarea><br />
+		<button id="convert" onClick="convert();">Convert</button><br />
+		<div id="output">{output_here}</div>
+	</div>
+	<script>
+	function convert() {
+		var table = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+		var bits = document.getElementById("bits").value.replace(/ /g, "").match(/.{1,6}/g);
+		var base64 = "";
+
+		for(var i = 0; i < bits.length; i++) {
+			base64 = base64 + table[ parseInt(bits[i], 2) ];
+		}
+
+		document.getElementById("output").innerHTML = base64;
+
+	}
+	</script>
+</body>
+</html>
