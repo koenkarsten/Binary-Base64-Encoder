@@ -3,7 +3,7 @@ Just a small tool to encode 8 bit binary strings with base64, uses no ASCII like
 
 ## Under the hood
 This script takes your 8 bit binary input en does the following
-1.	Chop up the 8 bit blocks to 6 bit blocks
-2.	Convert each 6 bit block to a decimal value
-3.	Lookup the corresponding encoding for each char (in this table)[https://blogs.oracle.com/rammenon/resource/WindowsLiveWriter-WhatisBase64_14272/base64table.jpg]
-4. Concatenate each of the encoded chars, end return them to the user
+* Chop up the 8 bit blocks to 6 bit blocks
+* Convert each 6 bit block to a decimal value
+* Lookup the corresponding encoding for each char [in this table](https://blogs.oracle.com/rammenon/resource/WindowsLiveWriter-WhatisBase64_14272/base64table.jpg)
+* Concatenate each of the encoded chars, end return them to the user
