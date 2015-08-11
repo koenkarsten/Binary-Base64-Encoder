@@ -43,7 +43,11 @@
 		var base64 = "";
 
 		for(var i = 0; i < bits.length; i++) {
-			base64 = base64 + table[ parseInt(bits[i], 2) ];
+			var padding = "";
+			if(bits[i].length == 2) { padding = "=="; }
+			else if(bits[i].length == 4) { padding = "="; }
+
+			base64 = base64 + table[ parseInt(bits[i], 2) ] + padding;
 		}
 
 		document.getElementById("output").innerHTML = base64;
